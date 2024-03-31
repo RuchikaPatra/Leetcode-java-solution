@@ -1,0 +1,21 @@
+class Solution {
+    public int mySqrt(int x) {
+        if (x==1 || x==0){
+            return x;
+        }
+        int left = 1 , right = 46341;
+        while(left < right){
+            int mid = left +(right - left)/2;
+            if (x < mid * mid){
+                right = mid ;
+            }
+            else if (x > mid * mid) {
+                left = mid + 1;
+            }
+            else {
+                return mid;
+            }
+        }
+        return left - 1;
+    }
+}
